@@ -43,6 +43,45 @@ function getFee(member){
     return member ? "Say Hi" : "Say Fuck";
 }
 
-
-
 console.log(getFee(member));
+
+const busORWalk = function(pocketMoney){
+    return  pocketMoney >= 200 ? "Bus see" : "walk mal";
+}
+
+console.log(busORWalk(200));
+console.log(busORWalk(100));
+
+
+const exam = function(mark){
+    if(mark >= 80){
+        return "pass by degree";
+    }else if(mark >= 40){
+        return "pass";
+    }else{
+        return "fail";
+    }
+}
+
+console.log(exam(80));
+console.log(exam(50));
+
+for(
+    i = (function(){
+        console.log("first");
+        return 1;
+    })();
+
+    (function(){
+        console.log("second");
+        return i <= 10;
+    })();
+
+    (function(){
+        console.log("last");
+        return i++;
+
+    })()
+){
+    console.log(i + "code block");
+}
