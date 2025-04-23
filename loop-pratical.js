@@ -336,7 +336,6 @@ const splitIndex = function (numArr, z, y) {
     if (x >= z && x < z + y) {
       index[indexNum++] = numArr[x];
     }
-    
   }
   return index;
 };
@@ -365,11 +364,51 @@ console.log(copier);
 // * * *
 // * * *
 // * * *
+
+const square = function (w, h) {
+  let result = "";
+  for (x = 1; x <= h; x++) {
+    for (y = 1; y <= w; y++) {
+      result += "*";
+    }
+    result += "\n";
+  }
+  return result;
+};
+console.log(square(3, 4));
+
 // n x n square လေးဖန်တီးရအောင်
 // 3row triangle လေးဖန်တီးရအောင်
 // *
 // * *
 // * * *
+//reverse square
+const square2 = function (h) {
+  let result = "";
+  for (x = 1; x <= h; x++) {
+    for (y = x; y <= h; y++) {
+      result += "* ";
+    }
+    result += "\n";
+  }
+
+  return result;
+};
+//Normal Square
+const square3 = function (h) {
+  let result = "";
+  for (x = 1; x <= h; x++) {
+    for (y = 1; y <= x; y++) {
+      result += "* ";
+    }
+    result += "\n";
+  }
+
+  return result;
+};
+
+console.log(square2(3));
+console.log(square3(3));
 
 const marks = {
   mm: 45,
@@ -527,3 +566,24 @@ const allStudentsMark = [
 // 3. over all အောင်မြင်၊ ကျရှုံးတွက်ပေးပါ
 // 4. ကျောင်းသားအားလုံး အောင်မြင်၊ ကျရှုံးတွက် ပေးပါ
 // 5. အောင်မြင်တဲ့လူတွေဆို Distinction ပါရင် ထည့်ရည်တွက်ပေးပါ
+const passOrFail = function (mark) {
+return  mark >= 40 ? "pass" : "fail";
+};
+
+for (x of allStudentsMark) {
+  x.overall = "pass";
+  x.Distinction = 0;
+  let resultBySub;
+  for (y of x.marks) {
+    resultBySub = passOrFail(y.mark);
+    y.result = resultBySub;
+    if(y.mark>=80){
+      x.Distinction += 1;
+    }
+    if(y.result=="fail"){
+       x.overall = "fail"
+    }
+  }
+}
+
+console.log(allStudentsMark);
